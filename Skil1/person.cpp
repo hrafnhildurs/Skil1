@@ -1,5 +1,6 @@
 #include <iostream>
 #include "person.h"
+#include <string>
 using namespace std;
 
 person::person()
@@ -20,13 +21,15 @@ person::person(string n, string s, int b, int d){
 istream &operator >> (istream& ins, person& a) {
 
     ofstream outFile;
-    outFile.open("persons.txt", ofstream::app);
+    outFile.open("out.txt", ofstream::app);
     if(outFile.fail())
     {
         cout << "outFile opening failed!!" << endl;
     }
-
-    ins >> a.name >> a.sex >> a.birth_year >> a.death_year;
+    ins >> ws;
+    getline(ins, a.name);
+    getline(ins, a.sex);
+    ins >> a.birth_year >> a.death_year;
     outFile << a.name << " " << a.sex << " " << a.birth_year << " " << a.death_year << ";" << endl;
 
     outFile.close();
