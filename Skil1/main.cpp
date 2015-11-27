@@ -15,6 +15,9 @@ int main()
     string names[MAX];
     string x;
     vector <string> a;
+    string search;
+    ifstream inFile;
+    string line;
     char ans;
     int number;
     do
@@ -23,7 +26,7 @@ int main()
         cout << "   =========================" << endl;
         cout << "   1.  Input new person" << endl;
         cout << "   2.  View list of persons" << endl;
-        cout << "   3.  Eitthvad1" << endl;
+        cout << "   3.  Search" << endl;
         cout << "   4.  Eitthvad2" << endl;
         cout << "   5.  Exit " << endl;
         cout << "   =========================" << endl;
@@ -39,6 +42,28 @@ int main()
             case 2:
                 DocString("out.txt", a);
             break;
+            case 3:
+                inFile.open("out.txt");
+
+                if(!inFile){
+                cout << "Unable to open file" << endl;
+                exit(1);
+                }
+                cout << "Enter word to search for: ";
+                cin >>search;
+
+
+                size_t pos;
+                while(inFile.good())
+                  {
+                      getline(inFile,line); // get line from file
+                      pos=line.find(search); // search
+                      if(pos!=string::npos) // string::npos is returned if string is not found
+                        {
+                            cout <<"Found!";
+                            break;
+                        }
+                  }
             case 5:
                 return 0;
             break;
