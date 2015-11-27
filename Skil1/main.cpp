@@ -15,24 +15,40 @@ int main()
     string names[MAX];
     string x;
     vector <string> a;
+    char ans;
     int number;
-
-    cout << "1: Input new person" << "\n2: View list of persons" << endl;
-    cout << "Use numbers to navigate" << endl;
-    cin >> number;
-    switch(number)
+    do
     {
-        case 1:
-            cout << "input the information like this" << endl;
-            cout << "name, sex, birth_year, death_year" << endl;
-            cin >> human;
+        cout << "\n";
+        cout << "   =========================" << endl;
+        cout << "   1.  Input new person" << endl;
+        cout << "   2.  View list of persons" << endl;
+        cout << "   3.  Eitthvad1" << endl;
+        cout << "   4.  Eitthvad2" << endl;
+        cout << "   5.  Exit " << endl;
+        cout << "   =========================" << endl;
+        cout << "\n";
+        cout << "   Enter your selection: ";
+        cin >> number;
+        switch(number)
+        {
+            case 1:
+                cout << "input the information like this" << endl;
+                cout << "name, sex, birth_year, death_year" << endl;
+                cin >> human;
 
-            cout << human << endl;
-        break;
-        case 2:
-            DocString("out.txt", a);
-        break;
-    }
+                cout << human << endl;
+            break;
+            case 2:
+                DocString("out.txt", a);
+            break;
+            case 5:
+                return 0;
+            break;
+        }
+        cout << "Do you want to continue (y/n)?";
+        cin >> ans;
+    }while(ans == 'y');
 
     return 0;
 }

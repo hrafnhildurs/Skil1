@@ -9,8 +9,6 @@ person::person()
    sex = "";
    birth_year = 0;
    death_year = 0;
-
-
 }
 person::person(string n, string s, int b, int d){
     name = n;
@@ -27,6 +25,7 @@ istream &operator >> (istream& ins, person& a) {
         cout << "outFile opening failed!!" << endl;
     }
     ins >> ws;
+
     getline(ins, a.name);
     getline(ins, a.sex);
     ins >> a.birth_year >> a.death_year;
