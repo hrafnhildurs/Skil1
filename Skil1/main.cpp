@@ -49,7 +49,7 @@ int main()
                 cout << "Unable to open file" << endl;
                 exit(1);
                 }
-                cout << "Enter word to search for: ";
+                cout << "Enter name to search for: ";
                 cin >>search;
 
 
@@ -60,7 +60,8 @@ int main()
                       pos=line.find(search); // search
                       if(pos!=string::npos) // string::npos is returned if string is not found
                         {
-                            cout <<"Found!";
+
+                            cout << search << " found! " << search << " is in our database" << endl;
                             break;
                         }
                   }
