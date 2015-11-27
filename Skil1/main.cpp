@@ -33,10 +33,7 @@ int main()
         switch(number)
         {
             case 1:
-                cout << "input the information like this" << endl;
-                cout << "name, sex, birth_year, death_year" << endl;
                 cin >> human;
-
                 cout << human << endl;
             break;
             case 2:

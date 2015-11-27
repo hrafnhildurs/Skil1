@@ -24,11 +24,16 @@ istream &operator >> (istream& ins, person& a) {
     {
         cout << "outFile opening failed!!" << endl;
     }
-    ins >> ws;
 
+    cout << "\n\n   Name: ";
+    ins >> ws;
     getline(ins, a.name);
+    cout << "   Sex: ";
     getline(ins, a.sex);
-    ins >> a.birth_year >> a.death_year;
+    cout << "   Birth year: ";
+    ins >> a.birth_year;
+    cout << "   Death year: ";
+    ins >> a.death_year;
     outFile << a.name << " " << a.sex << " " << a.birth_year << " " << a.death_year << ";" << endl;
 
     outFile.close();
@@ -37,10 +42,10 @@ istream &operator >> (istream& ins, person& a) {
 }
 ostream &operator << (ostream& outs, const person& a)
 {
-    outs << "Name: " << a.name << endl;
-    outs << "Sex: " << a.sex << endl;
-    outs << "Birth year: " << a.birth_year << endl;
-    outs << "Death year: " << a.death_year << endl;
+    outs << "\n   Name: " << a.name << endl;
+    outs << "   Sex: " << a.sex << endl;
+    outs << "   Birth year: " << a.birth_year << endl;
+    outs << "   Death year: " << a.death_year << endl;
 
     return outs;
 }
