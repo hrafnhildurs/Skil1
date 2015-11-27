@@ -8,9 +8,16 @@ using namespace std;
 const int MAX = 20;
 
 void DocString (const char doc[], vector <string> stringVec);
+void selection();
 
 int main()
 {
+    selection();
+
+
+    return 0;
+}
+void selection() {
     person human;
     string names[MAX];
     string x;
@@ -64,16 +71,17 @@ int main()
                             cout << search << " found! " << search << " is in our database" << endl;
                             break;
                         }
+                      else
+                          cout << search << " not found! " << search << " is not in our database" << endl;
+                          break;
                   }
             case 5:
-                return 0;
+                return;
             break;
         }
         cout << "Do you want to continue (y/n)?";
         cin >> ans;
     }while(ans == 'y');
-
-    return 0;
 }
 
 void DocString (const char doc[], vector <string> stringVec)
