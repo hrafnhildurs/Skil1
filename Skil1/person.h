@@ -2,6 +2,8 @@
 #define PERSON_H
 #include <string>
 #include <fstream>
+#include <vector>
+#include <iostream>
 using namespace std;
 
 
@@ -12,10 +14,13 @@ protected:
     string sex;
     int birth_year;
     int death_year;
+    vector<person>persons;
+
 public:
     person();
     person(string n, string s, int b, int d);
     friend ifstream& operator >> (ifstream& ins, person a);
+
 
 };
 
