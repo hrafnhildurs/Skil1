@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <algorithm>
 #include "person.h"
 using namespace std;
 
@@ -20,11 +21,10 @@ int main()
 void selection() {
     person human;
     string names[MAX];
-    string x;
+    vector<string> cnames;
     vector <string> a;
-    string search;
+    string search, line, word, x;
     ifstream inFile;
-    string line;
     char ans;
     int number;
     do
@@ -34,7 +34,7 @@ void selection() {
         cout << "   1.  Input new person" << endl;
         cout << "   2.  View list of persons" << endl;
         cout << "   3.  Search" << endl;
-        cout << "   4.  Eitthvad2" << endl;
+        cout << "   4.  Sort alphabetically" << endl;
         cout << "   5.  Exit " << endl;
         cout << "   =========================" << endl;
         cout << "\n";
@@ -69,12 +69,34 @@ void selection() {
                         {
 
                             cout << search << " found! " << search << " is in our database" << endl;
-                            break;
                         }
                       else
                           cout << search << " not found! " << search << " is not in our database" << endl;
-                          break;
+
                   }
+            break;
+            case 4:
+            {
+            // Empty vector holding all names from file
+
+
+                // Read names from file LineUp.txt
+                ifstream in("out.txt");
+                if(!in.is_open())
+                    cout << "Unable to open file\n";
+
+                // this is wrong, by the way: while(in.good()){
+
+                while(getline(in, word))
+                        cnames.push_back(word);
+
+                sort(cnames.begin(), cnames.end());
+
+                // Loop to print names
+                for (size_t i = 0; i < cnames.size(); i++)
+                    cout << cnames[i] << '\n';
+            break;
+            }
             case 5:
                 return;
             break;

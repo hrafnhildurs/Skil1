@@ -1,2 +1,0 @@
-john male 1235 1238;
-Adam Savage Male 1965 2059;
