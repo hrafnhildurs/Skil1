@@ -10,6 +10,7 @@ const int MAX = 20;
 
 void DocString (const char doc[], vector <string> stringVec);
 void selection();
+void sort ();
 
 int main()
 {
@@ -21,9 +22,8 @@ int main()
 void selection() {
     person human;
     string names[MAX];
-    vector<string> cnames;
     vector <string> a;
-    string search, line, word, x;
+    string search, line, x;
     ifstream inFile;
     char ans;
     int number;
@@ -77,24 +77,7 @@ void selection() {
             break;
             case 4:
             {
-            // Empty vector holding all names from file
-
-
-                // Read names from file LineUp.txt
-                ifstream in("out.txt");
-                if(!in.is_open())
-                    cout << "Unable to open file\n";
-
-                // this is wrong, by the way: while(in.good()){
-
-                while(getline(in, word))
-                        cnames.push_back(word);
-
-                sort(cnames.begin(), cnames.end());
-
-                // Loop to print names
-                for (size_t i = 0; i < cnames.size(); i++)
-                    cout << cnames[i] << '\n';
+                    sort();
             break;
             }
             case 5:
@@ -119,4 +102,26 @@ void DocString (const char doc[], vector <string> stringVec)
     }
 
     document.close();
+}
+void sort () {
+    string word;
+    vector<string> cnames;
+    // Empty vector holding all names from file
+
+
+        // Read names from file LineUp.txt
+        ifstream in("out.txt");
+        if(!in.is_open())
+            cout << "Unable to open file\n";
+
+        // this is wrong, by the way: while(in.good()){
+
+        while(getline(in, word))
+                cnames.push_back(word);
+
+        sort(cnames.begin(), cnames.end());
+
+        // Loop to print names
+        for (size_t i = 0; i < cnames.size(); i++)
+            cout << cnames[i] << '\n';
 }
