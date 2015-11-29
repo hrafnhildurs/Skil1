@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <cstdlib>
 #include "person.h"
 using namespace std;
 
@@ -13,7 +14,7 @@ void selection();
 void alphabeticSortAsc();
 void alphabeticSortDes();
 void sortMenu();
-void search();
+void search(const char doc[]);
 
 int main()
 {
@@ -50,7 +51,7 @@ void selection() {
                 DocString("out.txt", a);
             break;
             case 3:
-                search();
+                search("out.txt");
                 break;
             case 4:
                 sortMenu();
@@ -146,11 +147,11 @@ void alphabeticSortDes() {
         for (size_t i = 0; i < cnames.size(); i++)
             cout << cnames[i] << '\n';
 }
-void search() {
+void search(const char doc[]) {
     ifstream inFile;
     string search, line;
 
-    inFile.open("out.txt");
+    inFile.open(doc);
 
     if(!inFile){
     cout << "Unable to open file" << endl;
@@ -159,21 +160,36 @@ void search() {
     cout << "Enter name to search for: ";
     cin >>search;
 
-
-    size_t pos;
-    while(inFile.good())
-      {
-          getline(inFile,line); // get line from file
-          pos=line.find(search); // search
-          if(pos!=string::npos) // string::npos is returned if string is not found
+    bool nameFound = true;
+    while(!inFile.eof())
+        {
+            string temp = "";
+            getline(inFile,temp);
+            for(unsigned int i=0; i < search.size();i++)
             {
+                if(temp[i] == search[i])
+                    nameFound = true;
+                else
+                {
+                    nameFound = false;
+                    break;
+                }
+            }
 
-                cout << search << " found! " << search << " is in our database" << endl;
+            if(nameFound)
+            {
+                cout << "Name found!" << endl;
+                cout << search << " ";
+                for(unsigned int i = search.size()+1;i < temp.size(); i++)
+                    cout << temp[i];
                 break;
             }
-          else
-              cout << search << " not found! " << search << " is not in our database" << endl;
-                break;
 
-      }
+        }
+
+        if(inFile.eof()&&(!nameFound))
+        {
+            cout << "Name not found!" << endl;
+        }
+
 }
