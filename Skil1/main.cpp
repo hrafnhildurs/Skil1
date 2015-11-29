@@ -24,10 +24,8 @@ int main()
 }
 void selection() {
     person human;
-
     vector <string> a;
 
-    char ans;
     int number;
     do
     {
@@ -62,9 +60,7 @@ void selection() {
                 return;
             break;
         }
-        cout << "Do you want to continue (y/n)?";
-        cin >> ans;
-    }while(ans == 'y');
+    }while(true);
 }
 
 void DocString (const char doc[], vector <string> stringVec)
