@@ -11,6 +11,8 @@ const int MAX = 20;
 void DocString (const char doc[], vector <string> stringVec);
 void selection();
 void alphabeticSort();
+void sortMenu();
+void search();
 
 int main()
 {
@@ -21,10 +23,9 @@ int main()
 }
 void selection() {
     person human;
-    string names[MAX];
+
     vector <string> a;
-    string search, line, x;
-    ifstream inFile;
+
     char ans;
     int number;
     do
@@ -34,7 +35,7 @@ void selection() {
         cout << "   1.  Input new person" << endl;
         cout << "   2.  View list of persons" << endl;
         cout << "   3.  Search" << endl;
-        cout << "   4.  Sort alphabetically" << endl;
+        cout << "   4.  Sort list" << endl;
         cout << "   5.  Exit " << endl;
         cout << "   =========================" << endl;
         cout << "\n";
@@ -50,36 +51,12 @@ void selection() {
                 DocString("out.txt", a);
             break;
             case 3:
-                inFile.open("out.txt");
-
-                if(!inFile){
-                cout << "Unable to open file" << endl;
-                exit(1);
-                }
-                cout << "Enter name to search for: ";
-                cin >>search;
-
-
-                size_t pos;
-                while(inFile.good())
-                  {
-                      getline(inFile,line); // get line from file
-                      pos=line.find(search); // search
-                      if(pos!=string::npos) // string::npos is returned if string is not found
-                        {
-
-                            cout << search << " found! " << search << " is in our database" << endl;
-                        }
-                      else
-                          cout << search << " not found! " << search << " is not in our database" << endl;
-
-                  }
-            break;
+                search();
+                break;
             case 4:
-            {
-                    alphabeticSort();
-            break;
-            }
+                sortMenu();
+                break;
+
             case 5:
                 return;
             break;
@@ -103,6 +80,30 @@ void DocString (const char doc[], vector <string> stringVec)
 
     document.close();
 }
+void sortMenu() {
+    int number;
+    cout << "\n";
+    cout << "   =========================" << endl;
+    cout << "   1.  alphabeticSort" << endl;
+    cout << "   2.  Sort eitthvad" << endl;
+    cout << "   3.  Exit sort menu " << endl;
+    cout << "   =========================" << endl;
+    cout << "\n";
+    cout << "   Enter your selection: ";
+    cin >> number;
+    switch(number)
+    {
+    case 1:
+        alphabeticSort();
+        break;
+    case 2:
+        break;
+    case 3:
+        selection();
+        break;
+    }
+}
+
 void alphabeticSort() {
     string word;
     vector<string> cnames;
@@ -124,4 +125,35 @@ void alphabeticSort() {
         // Loop to print names
         for (size_t i = 0; i < cnames.size(); i++)
             cout << cnames[i] << '\n';
+}
+void search() {
+    ifstream inFile;
+    string search, line;
+
+    inFile.open("out.txt");
+
+    if(!inFile){
+    cout << "Unable to open file" << endl;
+    exit(1);
+    }
+    cout << "Enter name to search for: ";
+    cin >>search;
+
+
+    size_t pos;
+    while(inFile.good())
+      {
+          getline(inFile,line); // get line from file
+          pos=line.find(search); // search
+          if(pos!=string::npos) // string::npos is returned if string is not found
+            {
+
+                cout << search << " found! " << search << " is in our database" << endl;
+                break;
+            }
+          else
+              cout << search << " not found! " << search << " is not in our database" << endl;
+                break;
+
+      }
 }
