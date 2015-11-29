@@ -10,7 +10,7 @@ const int MAX = 20;
 
 void DocString (const char doc[], vector <string> stringVec);
 void selection();
-void sort ();
+void alphabeticSort();
 
 int main()
 {
@@ -77,7 +77,7 @@ void selection() {
             break;
             case 4:
             {
-                    sort();
+                    alphabeticSort();
             break;
             }
             case 5:
@@ -103,7 +103,7 @@ void DocString (const char doc[], vector <string> stringVec)
 
     document.close();
 }
-void sort () {
+void alphabeticSort() {
     string word;
     vector<string> cnames;
     // Empty vector holding all names from file
