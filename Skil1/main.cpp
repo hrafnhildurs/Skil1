@@ -10,7 +10,8 @@ const int MAX = 20;
 
 void DocString (const char doc[], vector <string> stringVec);
 void selection();
-void alphabeticSort();
+void alphabeticSortAsc();
+void alphabeticSortDes();
 void sortMenu();
 void search();
 
@@ -84,8 +85,8 @@ void sortMenu() {
     int number;
     cout << "\n";
     cout << "   =========================" << endl;
-    cout << "   1.  alphabeticSort" << endl;
-    cout << "   2.  Sort eitthvad" << endl;
+    cout << "   1.  Ascending alphabetic sort" << endl;
+    cout << "   2.  Descending alphabetic sort" << endl;
     cout << "   3.  Exit sort menu " << endl;
     cout << "   =========================" << endl;
     cout << "\n";
@@ -94,9 +95,10 @@ void sortMenu() {
     switch(number)
     {
     case 1:
-        alphabeticSort();
+        alphabeticSortAsc();
         break;
     case 2:
+        alphabeticSortDes();
         break;
     case 3:
         selection();
@@ -104,7 +106,7 @@ void sortMenu() {
     }
 }
 
-void alphabeticSort() {
+void alphabeticSortAsc() {
     string word;
     vector<string> cnames;
     // Empty vector holding all names from file
@@ -121,6 +123,28 @@ void alphabeticSort() {
                 cnames.push_back(word);
 
         sort(cnames.begin(), cnames.end());
+
+        // Loop to print names
+        for (size_t i = 0; i < cnames.size(); i++)
+            cout << cnames[i] << '\n';
+}
+void alphabeticSortDes() {
+    string word;
+    vector<string> cnames;
+    // Empty vector holding all names from file
+
+
+        // Read names from file LineUp.txt
+        ifstream in("out.txt");
+        if(!in.is_open())
+            cout << "Unable to open file\n";
+
+        // this is wrong, by the way: while(in.good()){
+
+        while(getline(in, word))
+                cnames.push_back(word);
+
+        sort(cnames.rbegin(), cnames.rend());
 
         // Loop to print names
         for (size_t i = 0; i < cnames.size(); i++)
