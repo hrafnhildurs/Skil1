@@ -36,7 +36,6 @@ void selection() {
         cout << "   1.  Input new person" << endl;
         cout << "   2.  View list of persons" << endl;
         cout << "   3.  Search" << endl;
-        cout << "   4.  Sort list" << endl;
         cout << "   5.  Exit " << endl;
         cout << "   =========================" << endl;
         cout << "\n";
@@ -50,14 +49,11 @@ void selection() {
             break;
             case 2:
                 DocString("out.txt", a);
+                sortMenu();
             break;
             case 3:
                 search("out.txt");
                 break;
-            case 4:
-                sortMenu();
-                break;
-
             case 5:
                 return;
             break;
@@ -150,7 +146,7 @@ void alphabeticSortDes() {
 }
 void search(const char doc[]) {
 
-    ifstream in("out.txt");
+    ifstream in(doc);
     string letters;
     string line;
 
@@ -164,8 +160,9 @@ void search(const char doc[]) {
                      if (line.find(letters) != string::npos) {
                          cout << line << endl;
                      }
-                 }
-                 cout << letters << " not found" << endl;
+                     else
+                        cout << letters << " not found" << endl;
+              }
          }
 
     /*
