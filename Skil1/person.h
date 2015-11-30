@@ -18,7 +18,6 @@ public:
     person(string& n, string& s, int& b, int& d);
     person(string& n, string& s, int& b);
     friend istream &operator >> (istream& ins, person& a);
-    friend ostream &operator << (ostream& outs, const person& a);
 
 };
 

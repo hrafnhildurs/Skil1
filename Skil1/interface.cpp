@@ -1,21 +1,28 @@
 #include "interface.h"
 
+
 void Interface::selection() {
     person human;
     vector <string> a;
+
 
     int number;
     do
     {
         cout << "\n";
-        cout << "   =========================" << endl;
-        cout << "   1.  Input new person" << endl;
-        cout << "   2.  View list of persons" << endl;
-        cout << "   3.  Search" << endl;
-        cout << "   4.  Exit " << endl;
-        cout << "   =========================" << endl;
+        cout << setw(50) << "-------------------------" << endl;
+        cout << setw(51) <<" |    Famous programmers   |" << endl;
+        cout << setw(50) << "-------------------------" << endl;
+        cout << "\n\n";
+        cout << setw(40) << "Menu" << endl;
+        cout << "   ======================================================================" << endl;
+        cout << setw(45) << "1.  Input new person" << endl;
+        cout << setw(49) << "2.  View list of persons" << endl;
+        cout << setw(35) << "3.  Search" << endl;
+        cout << setw(34) << "4.  Exit " << endl;
+        cout << "   ======================================================================" << endl;
         cout << "\n";
-        cout << "   Enter your selection: ";
+        cout << setw(47) << "Enter your selection: ";
         cin >> number;
         switch(number)
         {
@@ -38,26 +45,31 @@ void Interface::selection() {
 
 void Interface::sortMenu() {
     int number;
-    cout << "\n";
-    cout << "   ==============================" << endl;
-    cout << "   1.  Ascending alphabetic sort" << endl;
-    cout << "   2.  Descending alphabetic sort" << endl;
-    cout << "   3.  Exit sort menu " << endl;
-    cout << "   ==============================" << endl;
-    cout << "\n";
-    cout << "   Enter your selection: ";
-    cin >> number;
-    switch(number)
+    do
     {
-    case 1:
-        alphabeticSortAsc();
-        break;
-    case 2:
-        alphabeticSortDes();
-        break;
-    case 3:
-        break;
-    }
+        cout << "\n\n";
+        cout << setw(44) << "Sorting menu" << endl;
+        cout << "   ======================================================================" << endl;
+        cout << setw(51) << "1.  Ascending alphabetic sort" << endl;
+        cout << setw(52) << "2.  Descending alphabetic sort" << endl;
+        cout << setw(41) << "3.  Exit sort menu " << endl;
+        cout << "   ======================================================================" << endl;
+        cout << "\n";
+        cout << setw(47) << "Enter your selection: ";
+        cin >> number;
+        switch(number)
+        {
+        case 1:
+            alphabeticSortAsc();
+            break;
+        case 2:
+            alphabeticSortDes();
+            break;
+        case 3:
+            break;
+        }
+    }while(number < 3);
+    cout << "\n\n";
 }
 
 void Interface::DocString (const char doc[], std::vector<string> stringVec)
@@ -68,7 +80,6 @@ void Interface::DocString (const char doc[], std::vector<string> stringVec)
 
     while(getline(document, temp, ';'))
     {
-        //cout << "   " << temp;
         stringVec.push_back(temp);
     }
 
@@ -79,46 +90,37 @@ void Interface::DocString (const char doc[], std::vector<string> stringVec)
 void Interface::alphabeticSortAsc() {
     string word;
     vector<string> cnames;
-    // Empty vector holding all names from file
+
+    ifstream in("out.txt");
+    if(!in.is_open())
+        cout << "Unable to open file\n";
 
 
-        // Read names from file LineUp.txt
-        ifstream in("out.txt");
-        if(!in.is_open())
-            cout << "Unable to open file\n";
+    Database();
+    while(getline(in, word))
+    cnames.push_back(word);
 
-        // this is wrong, by the way: while(in.good()){
-        Database();
-        while(getline(in, word))
-                cnames.push_back(word);
+    sort(cnames.begin(), cnames.end());
 
-        sort(cnames.begin(), cnames.end());
-
-        // Loop to print names
-        for (size_t i = 0; i < cnames.size(); i++)
-            cout << "   " << cnames[i] << '\n';
-}
+    for (size_t i = 0; i < cnames.size(); i++)
+        cout << "   " << cnames[i] << '\n';
+    }
 void Interface::alphabeticSortDes() {
     string word;
     vector<string> cnames;
-    // Empty vector holding all names from file
 
+    ifstream in("out.txt");
+    if(!in.is_open())
+        cout << "   Unable to open file\n";
 
-        // Read names from file LineUp.txt
-        ifstream in("out.txt");
-        if(!in.is_open())
-            cout << "   Unable to open file\n";
+    Database();
+    while(getline(in, word))
+        cnames.push_back(word);
 
-        // this is wrong, by the way: while(in.good()){
-        Database();
-        while(getline(in, word))
-                cnames.push_back(word);
+    sort(cnames.rbegin(), cnames.rend());
 
-        sort(cnames.rbegin(), cnames.rend());
-
-        // Loop to print names
-        for (size_t i = 0; i < cnames.size(); i++)
-            cout << "   " << cnames[i] << '\n';
+    for (size_t i = 0; i < cnames.size(); i++)
+        cout << "   " << cnames[i] << '\n';
 }
 void Interface::search(const char doc[]) {
 
@@ -137,73 +139,30 @@ void Interface::search(const char doc[]) {
         if (line.find(letters) != string::npos) {
             cout << "   " << line << endl;
             found++;
-        }
+            }
         }
         if (found == 0)
            cout << "   " << letters << " not found" << endl;
     }
-
-    /*
-     * ifstream inFile;
-     string search;
-     inFile.open(doc);
-
-    if(!inFile){
-    cout << "Unable to open file" << endl;
-    exit(1);
-    }
-    cout << "Enter name to search for: ";
-    cin >>search;
-
-    bool nameFound = true;
-    while(!inFile.eof())
-        {
-            string temp = "";
-            getline(inFile,temp);
-            for(unsigned int i=0; i < search.size();i++)
-            {
-                if(temp[i] == search[i])
-                    nameFound = true;
-                else
-                {
-                    nameFound = false;
-                    break;
-                }
-            }
-
-            if(nameFound)
-            {
-                cout << "Name found!" << endl;
-                cout << search << " ";
-                for(unsigned int i = search.size()+1;i < temp.size(); i++)
-                    cout << temp[i];
-                break;
-            }
-
-        }
-
-        if(inFile.eof()&&(!nameFound))
-        {
-            cout << "Name not found!" << endl;
-        }*/
-
 }
 void Interface::Database()
 {
-    cout << "   ---------------------------------------------------------------------" << endl;
-    cout << setw(40) << "Database" << endl;
-    cout << "   ---------------------------------------------------------------------" << endl;
     cout << "\n";
-    cout << setw(10) << "Name" << setw(33) << "Sex" << setw(14) << "Birth year" << setw(14) << "Death year" << endl;
-    cout << "   =====================================================================" << endl;
+    cout << "   ----------------------------------------------------------------------" << endl;
+    cout << setw(40) << "Database" << endl;
+    cout << "   ----------------------------------------------------------------------" << endl;
+    cout << "\n";
+    cout << setw(10) << "Name" << setw(33) << "Sex" << setw(12) << "Birth year" << setw(14) << "Death year" << endl;
+    cout << "   ======================================================================" << endl;
 }
 
 void Interface::searchResults()
 {
-    cout << "   ---------------------------------------------------------------------" << endl;
-    cout << setw(40) << "Search results" << endl;
-    cout << "   ---------------------------------------------------------------------" << endl;
     cout << "\n";
-    cout << setw(10) << "Name" << setw(33) << "Sex" << setw(14) << "Birth year" << setw(14) << "Death year" << endl;
-    cout << "   =====================================================================" << endl;
+    cout << "   ----------------------------------------------------------------------" << endl;
+    cout << setw(40) << "Search results" << endl;
+    cout << "   ----------------------------------------------------------------------" << endl;
+    cout << "\n";
+    cout << setw(10) << "Name" << setw(33) << "Sex" << setw(12) << "Birth year" << setw(14) << "Death year" << endl;
+    cout << "   ======================================================================" << endl;
 }

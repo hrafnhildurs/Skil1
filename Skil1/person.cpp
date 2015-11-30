@@ -32,28 +32,31 @@ istream &operator >> (istream& ins, person& a) {
     {
         cout << "   outFile opening failed!!" << endl;
     }
-    cout << "   Is the person alive? (y/n) ";
+    cout << endl;
+    cout << setw(52) << "Is the person alive? (y/n) ";
     cin >> ans;
 
     if(ans == 'y') {
-        cout << "\n   Name: ";
+        cout << "\n";
+        cout << setw(31) << "Name: ";
         ins >> ws;
         getline(ins, a.name);
-        cout << "   Sex: ";
+        cout << setw(30) << "Sex: ";
         getline(ins, a.sex);
-        cout << "   Birth year: ";
+        cout << setw(37) << "Birth year: ";
         ins >> a.birth_year;
         outFile << setw(a.name.length()) << a.name << setw(16 + (25 - a.name.length())) << a.sex << setw(8) << a.birth_year << setw(14) << endl;
     }
     else if (ans == 'n'){
-        cout << "\n   Name: ";
+        cout << endl;
+        cout << setw(31) << "Name: ";
         ins >> ws;
         getline(ins, a.name);
-        cout << "   Sex: ";
+        cout << setw(30) << "       Sex: ";
         getline(ins, a.sex);
-        cout << "   Birth year: ";
+        cout << setw(37) << "       Birth year: ";
         ins >> a.birth_year;
-        cout << "   Death year: ";
+        cout << setw(37) << "       Death year: ";
         ins >> a.death_year;
         outFile << setw(a.name.length()) << a.name << setw(16 + (25 - a.name.length())) << a.sex << setw(8) << a.birth_year << setw(14) << a.death_year << endl;
     }
@@ -61,13 +64,4 @@ istream &operator >> (istream& ins, person& a) {
     outFile.close();
 
     return ins;
-}
-ostream &operator << (ostream& outs, const person& a)
-{
-    outs << "\n   Name: " << a.name << endl;
-    outs << "   Sex: " << a.sex << endl;
-    outs << "   Birth year: " << a.birth_year << endl;
-    outs << "   Death year: " << a.death_year << endl;
-
-    return outs;
 }
