@@ -21,7 +21,6 @@ void Interface::selection() {
         {
             case 1:
                 cin >> human;
-                cout << human << endl;
             break;
             case 2:
                 DocString("out.txt", a);
@@ -57,7 +56,6 @@ void Interface::sortMenu() {
         alphabeticSortDes();
         break;
     case 3:
-        selection();
         break;
     }
 }

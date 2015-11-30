@@ -3,3 +3,8 @@ Einir Einisson                       Male    1983
 Steingrimur Arnar Jonsson            Male    1987
 Andri Arnarson                       Male    1983
 Andrea Gylfadottir                 Female    1960
+Gunnar Gunnarsson                    Male    1940
+Adolf Hitler                         Male    1892          1945
+Jon Jonsson                          Male    1830          1901
+Gunnar a Vollum                      Male    1970
+Gudrun Jonsdottir                  Female    1990
