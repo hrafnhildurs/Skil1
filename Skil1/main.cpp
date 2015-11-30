@@ -36,7 +36,7 @@ void selection() {
         cout << "   1.  Input new person" << endl;
         cout << "   2.  View list of persons" << endl;
         cout << "   3.  Search" << endl;
-        cout << "   5.  Exit " << endl;
+        cout << "   4.  Exit " << endl;
         cout << "   =========================" << endl;
         cout << "\n";
         cout << "   Enter your selection: ";
@@ -54,7 +54,7 @@ void selection() {
             case 3:
                 search("out.txt");
                 break;
-            case 5:
+            case 4:
                 return;
             break;
         }
