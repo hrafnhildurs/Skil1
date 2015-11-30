@@ -43,7 +43,7 @@ istream &operator >> (istream& ins, person& a) {
         getline(ins, a.sex);
         cout << "   Birth year: ";
         ins >> a.birth_year;
-        outFile << setw(25) << a.name << setw(16) << a.sex << setw(8) << a.birth_year << setw(14) << endl;
+        outFile << setw(a.name.length()) << a.name << setw(16 + (25 - a.name.length())) << a.sex << setw(8) << a.birth_year << setw(14) << endl;
     }
     else if (ans == 'n'){
         cout << "\n   Name: ";

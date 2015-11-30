@@ -22,6 +22,7 @@ private:
     void search(const char doc[]);
     void sortMenu();
     void Database();
+    void searchResults();
 };
 
 #endif // INTERFACE_H

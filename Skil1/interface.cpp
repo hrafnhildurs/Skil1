@@ -128,23 +128,22 @@ void Interface::search(const char doc[]) {
     string letters;
     string line;
 
-         cout<<"   Enter search word: ";
+    cout << "   Enter search word: ";
                 cin >> letters;
-
-         if(in.is_open())
-         {
-            int found = 0;
-            cout << "\n";
-            cout << "   Search results: \n";
-            while (getline(in, line)) {
-                     if (line.find(letters) != string::npos) {
-                         cout << "   " << line << endl;
-                         found++;
-                     }
-            }
-            if (found == 0)
-               cout << "   " << letters << " not found" << endl;
-         }
+    searchResults();
+    if(in.is_open())
+    {
+        int found = 0;
+        cout << "\n";
+        while (getline(in, line)) {
+        if (line.find(letters) != string::npos) {
+            cout << "   " << line << endl;
+            found++;
+        }
+        }
+        if (found == 0)
+           cout << "   " << letters << " not found" << endl;
+    }
 
     /*
      * ifstream inFile;
@@ -197,6 +196,16 @@ void Interface::Database()
     cout << setw(40) << "Database" << endl;
     cout << "   ---------------------------------------------------------------------" << endl;
     cout << "\n";
-    cout << setw(28) << "Name" << setw(14) << "Sex" << setw(14) << "Birth year" << setw(14) << "Death year" << endl;
+    cout << setw(10) << "Name" << setw(33) << "Sex" << setw(14) << "Birth year" << setw(14) << "Death year" << endl;
+    cout << "   =====================================================================" << endl;
+}
+
+void Interface::searchResults()
+{
+    cout << "   ---------------------------------------------------------------------" << endl;
+    cout << setw(40) << "Search results" << endl;
+    cout << "   ---------------------------------------------------------------------" << endl;
+    cout << "\n";
+    cout << setw(10) << "Name" << setw(33) << "Sex" << setw(14) << "Birth year" << setw(14) << "Death year" << endl;
     cout << "   =====================================================================" << endl;
 }
