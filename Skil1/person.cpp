@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "person.h"
 #include <string>
 using namespace std;
@@ -42,7 +43,7 @@ istream &operator >> (istream& ins, person& a) {
         getline(ins, a.sex);
         cout << "   Birth year: ";
         ins >> a.birth_year;
-        outFile << a.name << " " << a.sex << " " << a.birth_year << " " << ";" << endl;
+        outFile << setw(25) << a.name << setw(16) << a.sex << setw(8) << a.birth_year << setw(14) << endl;
     }
     else if (ans == 'n'){
         cout << "\n   Name: ";
@@ -54,7 +55,7 @@ istream &operator >> (istream& ins, person& a) {
         ins >> a.birth_year;
         cout << "   Death year: ";
         ins >> a.death_year;
-        outFile << a.name << " " << a.sex << " " << a.birth_year << " " << a.death_year << ";" << endl;
+        outFile << setw(25) << a.name << setw(16) << a.sex << setw(8) << a.birth_year << setw(14) << a.death_year << endl;
     }
 
     outFile.close();

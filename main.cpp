@@ -1,6 +1,32 @@
-#include "interface.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <cstdlib>
+#include <cstring>
+#include <iomanip>
+#include "person.h"
+using namespace std;
 
-void Interface::selection() {
+const int MAX = 20;
+
+void DocString (const char doc[], vector <string> stringVec);
+void selection();
+void alphabeticSortAsc();
+void alphabeticSortDes();
+void sortMenu();
+void search(const char doc[]);
+void Database();
+
+int main()
+{
+    selection();
+
+
+    return 0;
+}
+void selection() {
     person human;
     vector <string> a;
 
@@ -17,6 +43,7 @@ void Interface::selection() {
         cout << "\n";
         cout << "   Enter your selection: ";
         cin >> number;
+        cout << "\n";
         switch(number)
         {
             case 1:
@@ -37,48 +64,49 @@ void Interface::selection() {
     }while(true);
 }
 
-void Interface::sortMenu() {
-    int number;
-    cout << "\n";
-    cout << "   ==============================" << endl;
-    cout << "   1.  Ascending alphabetic sort" << endl;
-    cout << "   2.  Descending alphabetic sort" << endl;
-    cout << "   3.  Exit sort menu " << endl;
-    cout << "   ==============================" << endl;
-    cout << "\n";
-    cout << "   Enter your selection: ";
-    cin >> number;
-    switch(number)
-    {
-    case 1:
-        alphabeticSortAsc();
-        break;
-    case 2:
-        alphabeticSortDes();
-        break;
-    case 3:
-        selection();
-        break;
-    }
-}
-
-void Interface::DocString (const char doc[], std::vector<string> stringVec)
+void DocString (const char doc[], vector <string> stringVec)
 {
     ifstream document;
     document.open(doc);
     string temp;
-
+    Database();
     while(getline(document, temp, ';'))
     {
-        //cout << "   " << temp;
+        cout << temp;
         stringVec.push_back(temp);
     }
 
     document.close();
 }
+void sortMenu() {
+    do
+    {
+        int number;
+        cout << "\n";
+        cout << "   ==============================" << endl;
+        cout << "   1.  Ascending alphabetic sort" << endl;
+        cout << "   2.  Descending alphabetic sort" << endl;
+        cout << "   3.  Exit sort menu " << endl;
+        cout << "   ==============================" << endl;
+        cout << "\n";
+        cout << "   Enter your selection: ";
+        cin >> number;
+        switch(number)
+        {
+        case 1:
+            alphabeticSortAsc();
+            break;
+        case 2:
+            alphabeticSortDes();
+            break;
+        case 3:
+            selection();
+            break;
+        }
+    }while(true);
+}
 
-
-void Interface::alphabeticSortAsc() {
+void alphabeticSortAsc() {
     string word;
     vector<string> cnames;
     // Empty vector holding all names from file
@@ -98,9 +126,9 @@ void Interface::alphabeticSortAsc() {
 
         // Loop to print names
         for (size_t i = 0; i < cnames.size(); i++)
-            cout << "   " << cnames[i] << '\n';
+            cout << cnames[i] << '\n';
 }
-void Interface::alphabeticSortDes() {
+void alphabeticSortDes() {
     string word;
     vector<string> cnames;
     // Empty vector holding all names from file
@@ -109,7 +137,7 @@ void Interface::alphabeticSortDes() {
         // Read names from file LineUp.txt
         ifstream in("out.txt");
         if(!in.is_open())
-            cout << "   Unable to open file\n";
+            cout << "Unable to open file\n";
 
         // this is wrong, by the way: while(in.good()){
         Database();
@@ -120,31 +148,26 @@ void Interface::alphabeticSortDes() {
 
         // Loop to print names
         for (size_t i = 0; i < cnames.size(); i++)
-            cout << "   " << cnames[i] << '\n';
+            cout << cnames[i] << '\n';
 }
-void Interface::search(const char doc[]) {
+void search(const char doc[]) {
 
     ifstream in(doc);
     string letters;
     string line;
 
-         cout<<"   Enter search word: ";
-                cin >> letters;
+         cout << "   Enter search word: ";
+         cin >> letters;
 
          if(in.is_open())
          {
-            int found = 0;
-            cout << "\n";
-            cout << "   Search results: \n";
             while (getline(in, line)) {
-                     if (line.find(letters) != string::npos) {
-                         cout << "   " << line << endl;
-                         found++;
-                     }
-            }
-            if (found == 0)
-               cout << "   " << letters << " not found" << endl;
+                 if (line.find(letters) != string::npos) {
+                     cout << line << endl;
+                 }
+             }
          }
+
 
     /*
      * ifstream inFile;
@@ -191,7 +214,7 @@ void Interface::search(const char doc[]) {
         }*/
 
 }
-void Interface::Database()
+void Database()
 {
     cout << "   ---------------------------------------------------------------------" << endl;
     cout << setw(40) << "Database" << endl;

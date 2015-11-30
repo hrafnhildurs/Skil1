@@ -1,6 +1,0 @@
-Einir Einisson Male 1983 2075;
-Gunnar Gunnarsson Male 910 1000;
-Arnar Jonsson Male 1999 2100;
-Gudrun Grimsdottir Female 1993 2090;
-Einir Einisson Male 1983 2080;
-Rakel Jons Female 1984 2060;

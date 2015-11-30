@@ -1,4 +1,9 @@
-Steingrimur Arnar Karlkyn 1987 2100;
-Agusta Friks kvenkyn 1988 2100;
-1 karlkyn 2015 2200;
-Baltasar Thorri Karlkyn 2015 0;
+           Steingrimur Arnar       Karlkyn          1987
+             Agusta Fridriks       Kvenkyn          1988
+          Baltasar Thorri   karlkyn      2015
+         Rakel jonsdottir             kvenkyn      1993
+          Rosa Jonsdottir           kvenkyn      1983
+       Agust Kristjansson          Karlkyn      1986
+      Thorlaug Steingrims          Kvenkyn    1962
+          Palli er bestur          karlkyn    1950      2010
+      palli er langbestur          karlkyn    1940          2010

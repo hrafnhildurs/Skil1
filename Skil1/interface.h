@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <cstring>
+#include <iomanip>
 #include "person.h"
 
 
@@ -20,6 +21,7 @@ private:
     void alphabeticSortDes();
     void search(const char doc[]);
     void sortMenu();
+    void Database();
 };
 
 #endif // INTERFACE_H
