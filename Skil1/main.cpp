@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <cstdlib>
+#include <cstring>
 #include "person.h"
 using namespace std;
 
@@ -81,11 +82,11 @@ void DocString (const char doc[], vector <string> stringVec)
 void sortMenu() {
     int number;
     cout << "\n";
-    cout << "   =========================" << endl;
+    cout << "   ==============================" << endl;
     cout << "   1.  Ascending alphabetic sort" << endl;
     cout << "   2.  Descending alphabetic sort" << endl;
     cout << "   3.  Exit sort menu " << endl;
-    cout << "   =========================" << endl;
+    cout << "   ==============================" << endl;
     cout << "\n";
     cout << "   Enter your selection: ";
     cin >> number;
@@ -148,10 +149,29 @@ void alphabeticSortDes() {
             cout << cnames[i] << '\n';
 }
 void search(const char doc[]) {
-    ifstream inFile;
-    string search, line;
 
-    inFile.open(doc);
+    ifstream in("out.txt");
+    string letters;
+    string line;
+
+         cout<<"enter search word ";
+                cin >> letters;
+
+         if(in.is_open())
+         {
+
+             while (getline(in, line)) {
+                     if (line.find(letters) != string::npos) {
+                         cout << line << endl;
+                     }
+                 }
+                 cout << letters << " not found" << endl;
+         }
+
+    /*
+     * ifstream inFile;
+     string search;
+     inFile.open(doc);
 
     if(!inFile){
     cout << "Unable to open file" << endl;
@@ -190,6 +210,6 @@ void search(const char doc[]) {
         if(inFile.eof()&&(!nameFound))
         {
             cout << "Name not found!" << endl;
-        }
+        }*/
 
 }
