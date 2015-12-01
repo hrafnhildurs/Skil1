@@ -15,11 +15,11 @@ private:
     char sortSwitch();
     void sortAsc();
     void sortDes();
+    void asInserted();
     void databaseHeader();
     void searchHeader();
     void search();
     void deletePerson();
-    void Normally();
 };
 
 #endif // INTERFACE_H

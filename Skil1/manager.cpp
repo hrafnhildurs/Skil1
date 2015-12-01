@@ -36,7 +36,8 @@ vector<string> Manager::readFromFile() {
     return cnames;
 }
 
-void Manager::Normallysort(vector<string> cnames) {
+// Prints the list ordered by time inserted
+void Manager::asInserted(vector<string> cnames) {
 
     for (size_t i = 0; i < cnames.size(); i++)
         cout << "   " << cnames[i] << '\n';

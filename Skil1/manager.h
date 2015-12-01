@@ -18,11 +18,11 @@ public:
     vector<string> readFromFile();
     void alphabeticSortAsc(vector<string> cnames);
     void alphabeticSortDes(vector<string> cnames);
+    void asInserted(vector<string> cnames);
     void deleteName(const char doc[], vector<string> tempVec);
     string readSearchWord();
     void search(const char doc[], string letters);
     void DocString (const char doc[], vector<string> stringVec);
-    void Normallysort(vector<string> cnames);
 private:
     person pers;
 };

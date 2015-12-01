@@ -98,8 +98,9 @@ char Interface::sortSwitch() {
             return '2';
             break;
         case '3':
-            Normally();
+            asInserted();
             return '3';
+            break;
         case '4':
             return '4';
             break;
@@ -108,11 +109,6 @@ char Interface::sortSwitch() {
             return '0';
             break;
         }
-}
-
-void Interface::Normally() {
-    databaseHeader();
-    manager.Normallysort(manager.readFromFile());
 }
 
 // Calls the ascending sorting function in Manager class
@@ -125,6 +121,11 @@ void Interface::sortAsc() {
 void Interface::sortDes() {
     databaseHeader();
     manager.alphabeticSortDes(manager.readFromFile());
+}
+
+void Interface::asInserted() {
+    databaseHeader();
+    manager.asInserted(manager.readFromFile());
 }
 
 // Calls the search function in Manager class

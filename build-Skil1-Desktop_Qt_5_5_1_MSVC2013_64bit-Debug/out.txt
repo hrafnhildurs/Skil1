@@ -1,0 +1,17 @@
+Julian Assange                     Male     1971              Tue Dec 01 19:00:48 2015
+Jack Dorsey                        Male     1976              Tue Dec 01 19:01:06 2015
+Edward Snowden                     Male     1983              Tue Dec 01 19:01:19 2015
+Marissa Mayer                    Female     1975              Tue Dec 01 19:01:31 2015
+Sergei Brin                        Male     1973              Tue Dec 01 19:01:56 2015
+Markus Persson                     Male     1979              Tue Dec 01 19:02:06 2015
+Steve Wozniak                      Male     1950              Tue Dec 01 19:02:15 2015
+Doublas C. Engelbart               Male     2013       2013   Tue Dec 01 19:02:30 2015
+Grace Hopper                       Male     1992       1992   Tue Dec 01 19:03:18 2015
+Mark Zuckerberg                    Male     1984              Tue Dec 01 19:03:46 2015
+Aaron Swartz                       Male     2013       2013   Tue Dec 01 19:04:45 2015
+James Clark                        Male     1944              Tue Dec 01 19:05:01 2015
+Ada Lovelace                     Female     1852       1852   Tue Dec 01 19:05:14 2015
+Mark Dean                          Male     1957              Tue Dec 01 19:05:27 2015
+Wayne Gould                        Male     1945              Tue Dec 01 19:05:43 2015
+J. Prester Eckert Jr.              Male     1995       1995   Tue Dec 01 19:05:59 2015
+
