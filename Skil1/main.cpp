@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     Interface prog;
-    prog.selection();
+    prog.start();
 
 
     return 0;

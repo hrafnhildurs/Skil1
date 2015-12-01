@@ -1,31 +1,24 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <vector>
-#include <algorithm>
-#include <cstdlib>
-#include <cstring>
-#include <iomanip>
-#include "person.h"
-
+#include "manager.h"
+using namespace std;
 
 class Interface
 {
 public:
-    void selection();
+    void start();
 private:
-    void DocString (const char doc[], std::vector<std::string> stringVec);
-    void alphabeticSortAsc();
-    void alphabeticSortDes();
-    void search(const char doc[]);
+    Manager manager;
+    char indexSwitch();
+    void addPerson();
     void sortMenu();
-    void Database();
-    void searchResults();
-    void editMenu(const char doc[]);
-    void deleteName(const char doc[]);
-    void changeName(const char doc[]);
+    char sortSwitch();
+    void sortAsc();
+    void sortDes();
+    void databaseHeader();
+    void searchHeader();
+    void search();
+    void deletePerson();
 };
 
 #endif // INTERFACE_H
