@@ -18,7 +18,7 @@ void Interface::selection() {
         cout << "   ======================================================================" << endl;
         cout << setw(45) << "1.  Input new person" << endl;
         cout << setw(49) << "2.  View list of persons" << endl;
-        cout << setw(56) << "3.  Delete person from database" << endl;
+        cout << setw(42) << "3.  Edit database" << endl;
         cout << setw(35) << "4.  Search" << endl;
         cout << setw(34) << "5.  Exit " << endl;
         cout << "   ======================================================================" << endl;
@@ -35,7 +35,7 @@ void Interface::selection() {
                 sortMenu();
                 break;
             case 3:
-                deleteName("out.txt");
+                editMenu("out.txt");
                 break;
             case 4:
                 search("out.txt");
@@ -151,6 +151,34 @@ void Interface::search(const char doc[]) {
            cout << "   " << letters << " not found" << endl;
     }
 }
+void Interface::editMenu(const char doc[]){
+    int number;
+    do
+    {
+        cout << "\n\n";
+        cout << setw(44) << "Edit menu" << endl;
+        cout << "   ======================================================================" << endl;
+        cout << setw(54) << "1.  Delete name from database" << endl;
+        cout << setw(50) << "2.  Edit name in database" << endl;
+        cout << setw(44) << "3.  Exit edit menu " << endl;
+        cout << "   ======================================================================" << endl;
+        cout << "\n";
+        cout << setw(47) << "Enter your selection: ";
+        cin >> number;
+        switch(number)
+        {
+        case 1:
+            deleteName(doc);
+            break;
+        case 2:
+            //changeName(doc);
+            break;
+        case 3:
+            break;
+        }
+    }while(number < 3);
+    cout << "\n\n";
+}
 
 void Interface::deleteName(const char doc[]){
     vector<string>tempVec;
@@ -172,23 +200,26 @@ void Interface::deleteName(const char doc[]){
 
     for(unsigned int i = 0; i < tempVec.size(); ++i)
     {
+        int found = 0;
         if(tempVec[i].substr(0, name.length()) == name)  //searching for the name in the vector
         {
-
             tempVec.erase(tempVec.begin() + i);           //deleting the name from the vector
             cout << "Name has been erased!"<< endl;
-            i = 0;                                  //reseting the search
+            found++;
         }
     }
+    vector<string>::iterator empty = remove_if(tempVec.begin(), tempVec.end(),mem_fun_ref(&string::empty));
+    tempVec.erase(empty, tempVec.end()); // remove empty lines from vector
 
-    ofstream outs(doc, ios::out | ios::trunc);             //printing a new list from the vec to the file
-                                                            //were the name has benn deleted
+    ofstream outs(doc);             //printing a new list from the vec to the file
+                                                            //were the name has been deleted
     for(vector<string>::const_iterator newlist = tempVec.begin(); newlist != tempVec.end(); newlist++)
     {
         outs << *newlist << endl;
     }
     outs.close();
 }
+
 
 void Interface::Database()
 {

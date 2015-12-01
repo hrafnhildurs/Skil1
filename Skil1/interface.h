@@ -23,7 +23,9 @@ private:
     void sortMenu();
     void Database();
     void searchResults();
+    void editMenu(const char doc[]);
     void deleteName(const char doc[]);
+    void changeName(const char doc[]);
 };
 
 #endif // INTERFACE_H
