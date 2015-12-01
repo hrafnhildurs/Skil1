@@ -77,13 +77,15 @@ void Interface::sortMenu() {
         cout << "\n";
         cout << setw(55) << "Enter your selection: ";
         number = sortSwitch();
-    }while(number != '3');
+    }while(number != '4');
     cout << "\n\n";
 }
 
 // Handles input from user and calls appropriate sorting functions in Manager class
 char Interface::sortSwitch() {
     char number;
+
+
     cin >> number;
     switch(number)
     {
@@ -97,15 +99,17 @@ char Interface::sortSwitch() {
             break;
         case '3':
             Normally();
+            return '3';
         case '4':
             return '4';
             break;
-       default:
+        default:
             cout << "   Invalid input.";
             return '0';
             break;
-    }
+        }
 }
+
 void Interface::Normally() {
     databaseHeader();
     manager.Normallysort(manager.readFromFile());
