@@ -71,7 +71,7 @@ void Interface::sortMenu() {
         cout << "   ======================================================================================" << endl;
         cout << setw(59) << "1.  Ascending alphabetic sort" << endl;
         cout << setw(60) << "2.  Descending alphabetic sort" << endl;
-        cout << setw(43) << "3.  Normally " << endl;
+        cout << setw(52) << "3.  Sort by date added" << endl;
         cout << setw(49) << "4.  Exit sort menu " << endl;
         cout << "   ======================================================================================" << endl;
         cout << "\n";
