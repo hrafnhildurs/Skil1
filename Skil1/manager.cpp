@@ -91,6 +91,7 @@ void Manager::search(const char doc[], string letters) {
 // Delete name from database
 void Manager::deleteName(const char doc[], vector<string> tempVec){
     string name;
+    bool found = false;
 
     cout << "\n";
     cout << setw(68) << "Enter the name you want to delete: ";
@@ -100,12 +101,16 @@ void Manager::deleteName(const char doc[], vector<string> tempVec){
     {
         if(tempVec[i].substr(0, name.length()) == name)  //searching for the name in the vector
         {
-
+            found = true;
             tempVec.erase(tempVec.begin() + i);           //deleting the name from the vector
             cout << setw(54) << "Name has been erased!"<< endl;
             i = 0;                                  //reseting the search
         }
     }
+
+    if(!found)
+        cout << setw(60) << "Name not found in database." << endl;
+
 
     ofstream outs(doc/*, ios::out | ios::trunc*/);             //printing a new list from the vec to the file
                                                             //were the name has benn deleted
