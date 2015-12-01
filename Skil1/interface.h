@@ -23,6 +23,7 @@ private:
     void sortMenu();
     void Database();
     void searchResults();
+    void deleteName(const char doc[]);
 };
 
 #endif // INTERFACE_H
