@@ -98,7 +98,7 @@ char Interface::sortSwitch() {
         case '3':
             Normally();
         case '4':
-            return '3';
+            return '4';
             break;
        default:
             cout << "   Invalid input.";
