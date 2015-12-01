@@ -55,7 +55,6 @@ istream &operator >> (istream& ins, person& a) {
         cout << setw(38) << "Sex: ";
         getline(ins, a.sex);
         cout << setw(45) << "Birth year: ";
-        ins >> a.birth_year;
         while ( !( ins >> a.birth_year ) ) {
           cin.clear();
           cin.ignore( 256, '\n' );
@@ -71,15 +70,13 @@ istream &operator >> (istream& ins, person& a) {
         cout << setw(38) << "Sex: ";
         getline(ins, a.sex);
         cout << setw(45) << "Birth year: ";
-        ins >> a.birth_year;
         while ( !( ins >> a.birth_year ) ) {
           cin.clear();
           cin.ignore( 256, '\n' );
           cout << setw(61) << "Please insert a valid year: ";
         }
         cout << setw(45) << "Death year: ";
-        ins >> a.death_year;
-        while ( !( ins >> a.birth_year ) ) {
+        while ( !( ins >> a.death_year ) ) {
           cin.clear();
           cin.ignore( 256, '\n' );
           cout << setw(61) << "Please insert a valid year: ";
