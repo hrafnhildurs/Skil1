@@ -22,6 +22,7 @@ public:
     string readSearchWord();
     void search(const char doc[], string letters);
     void DocString (const char doc[], vector<string> stringVec);
+    void Normallysort(vector<string> cnames);
 private:
     person pers;
 };

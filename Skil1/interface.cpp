@@ -96,6 +96,8 @@ char Interface::sortSwitch() {
             return '2';
             break;
         case '3':
+            Normally();
+        case '4':
             return '3';
             break;
        default:
@@ -103,6 +105,10 @@ char Interface::sortSwitch() {
             return '0';
             break;
     }
+}
+void Interface::Normally() {
+    databaseHeader();
+    manager.Normallysort(manager.readFromFile());
 }
 
 // Calls the ascending sorting function in Manager class

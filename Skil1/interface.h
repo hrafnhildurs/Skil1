@@ -19,6 +19,7 @@ private:
     void searchHeader();
     void search();
     void deletePerson();
+    void Normally();
 };
 
 #endif // INTERFACE_H

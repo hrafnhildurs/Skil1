@@ -36,6 +36,13 @@ vector<string> Manager::readFromFile() {
     return cnames;
 }
 
+void Manager::Normallysort(vector<string> cnames) {
+
+    for (size_t i = 0; i < cnames.size(); i++)
+        cout << "   " << cnames[i] << '\n';
+
+}
+
 // Ascending sorting function
 void Manager::alphabeticSortAsc(vector<string> cnames) {
     sort(cnames.begin(), cnames.end());
